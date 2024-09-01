@@ -26,8 +26,11 @@ const Home = () => {
             <PageOptions
                 title="Choose Your Campaign"
                 creatable="New Campaign"
+                navLink="/campaigns/new"
             />
-            <Campaigns />
+            <div className="flex justify-around mx-8 flex-wrap">
+                <Campaigns />
+            </div>
         </>
     );
 };

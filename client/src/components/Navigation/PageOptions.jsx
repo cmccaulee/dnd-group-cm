@@ -3,7 +3,7 @@ import { useContext } from "react";
 import { LoggedInUserContext } from "../../context/LoggedInUserContext";
 
 const PageOptions = (props) => {
-    const { title, creatable } = props;
+    const { title, creatable, navLink } = props;
     const { isLoggedIn, user } = useContext(LoggedInUserContext);
     return (
         <>
@@ -11,11 +11,13 @@ const PageOptions = (props) => {
                 <div className="flex-1">
                     <h1 className="text-4xl font-unifraktur">{title}</h1>
                 </div>
-                <button className="btn btn-primary rounded-none shadow-lg">
+                <Link
+                    to={navLink}
+                    className="btn btn-primary rounded-none shadow-lg">
                     <span className="font-unifraktur text-2xl">
                         {creatable}
                     </span>
-                </button>
+                </Link>
             </div>
         </>
     );
