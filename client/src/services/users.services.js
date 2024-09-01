@@ -1,5 +1,10 @@
 import axios from 'axios';
 
+// const http = axios.create({
+//     "baseURL": "http://localhost:8000/api/users",
+// })
+// TODO Covert to baseURL format
+
 const UserService = {
     login: (user) => {
         return axios.post("http://localhost:8000/api/users/login", user, {

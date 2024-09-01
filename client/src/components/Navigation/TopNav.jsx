@@ -19,11 +19,11 @@ const TopNav = () => {
     };
     return (
         <>
-            <div className="navbar bg-base-100 drop-shadow-lg p-8">
+            <div className="navbar bg-base-100 drop-shadow-lg px-8">
                 <div className="flex-1">
                     <Link
                         to={"/home"}
-                        className="btn btn-ghost text-6xl font-unifraktur">
+                        className="btn btn-ghost text-6xl font-unifraktur mb-2 -mt-4">
                         Adventure Archives
                     </Link>
                 </div>

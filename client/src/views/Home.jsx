@@ -3,6 +3,8 @@ import { useNavigate } from "react-router-dom";
 import UserService from "../services/users.services";
 import { useContext } from "react";
 import TopNav from "../components/Navigation/TopNav";
+import PageOptions from "../components/Navigation/PageOptions";
+import CampaignCard from "../components/Cards/CampaignCard";
 
 const Home = () => {
     const navigate = useNavigate();
@@ -20,11 +22,11 @@ const Home = () => {
     return (
         <>
             <TopNav />
-            <div>
-                <h1 className="text-4xl mt-8 ml-8">
-                    Testing...Welcome, {user.firstName}
-                </h1>
-            </div>
+            <PageOptions
+                title="Choose Your Campaign"
+                creatable="New Campaign"
+            />
+            <CampaignCard />
         </>
     );
 };
