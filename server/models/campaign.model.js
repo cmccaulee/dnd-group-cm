@@ -27,7 +27,11 @@ const CampaignSchema = new Schema({
     createdBy: {
         type: String,
         required: [true, "User ID is required"]
-    }
+    },
+    players: [{
+        type: Schema.Types.ObjectId,
+        ref: 'User',
+    }],
 }
 )
 const Campaign = model('Campaign', CampaignSchema);

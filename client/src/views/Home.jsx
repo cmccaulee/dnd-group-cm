@@ -4,7 +4,7 @@ import UserService from "../services/users.services";
 import { useContext } from "react";
 import TopNav from "../components/Navigation/TopNav";
 import PageOptions from "../components/Navigation/PageOptions";
-import CampaignCard from "../components/Cards/CampaignCard";
+import Campaigns from "../components/Maps/Campaigns";
 
 const Home = () => {
     const navigate = useNavigate();
@@ -22,11 +22,12 @@ const Home = () => {
     return (
         <>
             <TopNav />
+
             <PageOptions
                 title="Choose Your Campaign"
                 creatable="New Campaign"
             />
-            <CampaignCard />
+            <Campaigns />
         </>
     );
 };
