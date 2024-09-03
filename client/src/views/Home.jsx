@@ -28,8 +28,10 @@ const Home = () => {
                 creatable="New Campaign"
                 navLink="/campaigns/new"
             />
-            <div className="flex justify-around mx-8 flex-wrap">
-                <Campaigns />
+            <div className="m-8">
+                <div className="flex justify-between flex-wrap">
+                    <Campaigns />
+                </div>
             </div>
         </>
     );

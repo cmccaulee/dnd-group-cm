@@ -19,27 +19,18 @@ const CampaignCard = (props) => {
                     style={{
                         zIndex: "-1",
                     }}></div>
-                <div className="hero-content text-neutral-content text-left shadow-xl p-8 pb-6 rounded-2xl">
-                    <div className="max-w-xl min-w-xl">
-                        <h1 className="mb-5 text-5xl font-bold font-unifraktur text-white text-left">
-                            {campaign.name}
-                        </h1>
-                        <p className="mb-5 text-white text-left">
-                            {campaign.heroText}
-                        </p>
-                        <div>
-                            <ul className="flex justify-around px-14 item-bottom">
-                                {campaign.players.map((player) => (
-                                    <li clas key={player._id}>
-                                        <UserIcon
-                                            image={player.image}
-                                            size="10"
-                                        />
-                                    </li>
-                                ))}
-                            </ul>
-                        </div>
-                    </div>
+                <div className="text-left shadow-xl p-8 pb-6 rounded-2xl min-w-[569px]">
+                    <h1 className="mb-5 text-3xl font-bold font-unifraktur text-white">
+                        {campaign.name}
+                    </h1>
+                    <p className="mb-5 text-white h-20">{campaign.heroText}</p>
+                    <ul className="flex justify-between px-14">
+                        {campaign.players.map((player) => (
+                            <li key={player._id}>
+                                <UserIcon image={player.image} size="10" />
+                            </li>
+                        ))}
+                    </ul>
                 </div>
             </div>
         </>
