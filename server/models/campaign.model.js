@@ -32,6 +32,10 @@ const CampaignSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'User',
     }],
+    notes: [{
+        type: Schema.Types.ObjectId,
+        ref: 'Note',
+    }],
 }
 )
 const Campaign = model('Campaign', CampaignSchema);

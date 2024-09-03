@@ -2,9 +2,10 @@ import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import dbConnect from './config/mongoose.config.js';
+import cookieParser from 'cookie-parser';
 import UserRouter from './routes/user.routes.js';
 import CampaignRouter from './routes/campaign.routes.js';
-import cookieParser from 'cookie-parser';
+import NoteRouter from './routes/note.routes.js';
 
 dotenv.config();
 const app = express();
@@ -15,6 +16,8 @@ dbConnect();
 // Routes
 app.use('/api/users', UserRouter);
 app.use('/api/campaigns', CampaignRouter)
+app.use('/api/notes', NoteRouter)
+
 
 // Error handling
 // Routes not found in App
