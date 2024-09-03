@@ -61,5 +61,13 @@ const UserController = {
             next(error);
         }
     },
+    "getAll": async (req, res, next) => {
+        try {
+            const allUsers = await UserModel.find()
+            res.json(allUsers);
+        } catch (err) {
+            next(err);
+        }
+    },
 }
 export default UserController;

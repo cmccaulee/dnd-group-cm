@@ -136,7 +136,7 @@ const NewCampaignForm = () => {
                         </p>
                     )}
                 </label>
-                <button className="btn btn-primary">Submit</button>
+                <button className="btn btn-primary shadow-lg">Submit</button>
             </form>
         </div>
     );
