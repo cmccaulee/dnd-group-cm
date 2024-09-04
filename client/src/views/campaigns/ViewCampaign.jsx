@@ -12,7 +12,7 @@ const ViewCampaign = () => {
         <div>
             <TopNav />
             <div className="flex justify-center gap-16 mt-16">
-                <Notes />
+                <Notes campaignId={id} />
                 <NewNoteForm campaignId={id} />
             </div>
         </div>

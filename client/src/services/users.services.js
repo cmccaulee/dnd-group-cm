@@ -1,6 +1,5 @@
 import axios from 'axios';
 
-
 const UserService = {
     login: (user) => {
         return axios.post("http://localhost:8000/api/users/login", user, {

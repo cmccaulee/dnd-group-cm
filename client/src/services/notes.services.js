@@ -7,7 +7,7 @@ const http = axios.create({
 const NoteService = {
     "getAll": async (campaign) => {
         try {
-            const endPoint = campaign ? `/campaign/${campaign}` : '/';
+            const endPoint = campaign ? `/campaigns/${campaign}` : '/';
             const response = await http.get(endPoint);
             return response.data
         }

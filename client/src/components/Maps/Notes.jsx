@@ -1,14 +1,15 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import NoteService from "../../services/notes.services";
 import NoteCard from "../Cards/NoteCard";
-import { useParams } from "react-router-dom";
+import { LoggedInUserContext } from "../../context/LoggedInUserContext";
 
-const Notes = () => {
+const Notes = (props) => {
     const [notes, setNotes] = useState([]);
-    const { campaign } = useParams();
+    const { user } = useContext(LoggedInUserContext);
+    const { campaignId } = props;
 
     useEffect(() => {
-        NoteService.getAll(campaign).then((response) => {
+        NoteService.getAll().then((response) => {
             setNotes(response);
         });
     }, []);
@@ -18,7 +19,11 @@ const Notes = () => {
             <div>
                 {notes.map((note, index) => (
                     <div className="mb-8" key={index}>
-                        <NoteCard note={note} />
+                        {note.campaign._id === campaignId ? (
+                            <NoteCard note={note} />
+                        ) : (
+                            ""
+                        )}
                     </div>
                 ))}
             </div>

@@ -15,6 +15,20 @@ const NewNoteForm = (props) => {
         createdBy: user,
     });
 
+    useEffect(() => {
+        if (!localStorage.getItem("user")) {
+            localStorage.setItem("user", JSON.stringify(user));
+        }
+
+        const storedUser = JSON.parse(localStorage.getItem("user"));
+        if (storedUser) {
+            setNote((prevNoteValue) => ({
+                ...prevNoteValue,
+                createdBy: storedUser,
+            }));
+        }
+    }, [user]);
+
     const changeHandler = (e) => {
         const { name, value } = e.target;
         setNote((prevNoteValue) => ({ ...prevNoteValue, [name]: value }));
@@ -25,16 +39,13 @@ const NewNoteForm = (props) => {
 
         NoteService.create(note)
             .then(() => {
-                window.location.reload();
                 setNote({
                     title: "",
                     content: "",
                     campaign: campaignId,
                     user: user,
                 });
-            })
-            .finally(() => {
-                navigate(`/campaigns/${campaignId}`);
+                navigate(0);
             })
             .catch((err) => {
                 setErrors(err.response.data);
