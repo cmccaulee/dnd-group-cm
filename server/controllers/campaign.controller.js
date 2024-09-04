@@ -11,7 +11,7 @@ const CampaignController = {
     },
     "getAll": async (req, res, next) => {
         try {
-            const allCampaigns = await Campaign.find().populate("players");
+            const allCampaigns = await Campaign.find().populate("players").populate("createdBy");
             res.json(allCampaigns);
         } catch (err) {
             next(err);
@@ -19,7 +19,7 @@ const CampaignController = {
     },
     "getOne": async (req, res, next) => {
         try {
-            const campaign = await Campaign.findById(req.params.id).populate("players");
+            const campaign = await Campaign.findById(req.params.id).populate("players").populate("createdBy");
             res.json(campaign);
         } catch (err) {
             next(err);
@@ -28,7 +28,7 @@ const CampaignController = {
     "update": async (req, res, next) => {
         const options = { new: true, runValidators: true };
         try {
-            const updatedCampaign = await Campaign.findByIdAndUpdate(req.params.id, req.body, options).populate("players");
+            const updatedCampaign = await Campaign.findByIdAndUpdate(req.params.id, req.body, options).populate("players").populate("createdBy");
             res.json(updatedCampaign);
         } catch (err) {
             next(err);
@@ -45,7 +45,7 @@ const CampaignController = {
     "getByUser": async (req, res, next) => {
         const filter = { user: req.params.id };
         try {
-            const campaigns = await Campaign.find(filter).populate("players");
+            const campaigns = await Campaign.find(filter).populate("players").populate("createdBy");
             res.json(campaigns);
         } catch (err) {
             next(err);

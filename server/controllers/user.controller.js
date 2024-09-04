@@ -17,7 +17,10 @@ const UserController = {
     },
     "logout": async (req, res, next) => {
         res.clearCookie('userToken');
-        return res.status(200).json({ message: "Logged out successfully" });
+        return res.status(200).send(`<script>
+            localStorage.clear();
+            window.location.href = '/';
+            </script>`);
     },
     "login": async (req, res, next) => {
         try {

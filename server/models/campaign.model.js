@@ -25,8 +25,9 @@ const CampaignSchema = new Schema({
         // ! Add a default image
     },
     createdBy: {
-        type: String,
-        required: [true, "User ID is required"]
+        type: Schema.Types.ObjectId,
+        required: [true, "Campaign must have a creator"],
+        ref: 'User',
     },
     players: [{
         type: Schema.Types.ObjectId,
