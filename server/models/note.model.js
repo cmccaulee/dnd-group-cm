@@ -13,6 +13,7 @@ const NoteSchema = new Schema({
     },
     createdBy: {
         type: Schema.Types.ObjectId,
+        required: true,
         ref: 'User',
     },
     campaign: {

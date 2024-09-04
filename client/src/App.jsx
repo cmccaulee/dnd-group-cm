@@ -4,6 +4,7 @@ import Login from "./views/login_reg/Login";
 import Home from "./views/Home";
 import Register from "./views/login_reg/Register";
 import NewCampaign from "./views/NewCampaign";
+import ViewCampaign from "./views/campaigns/ViewCampaign";
 
 function App() {
     return (
@@ -17,6 +18,10 @@ function App() {
                         <Route
                             path="/campaigns/new"
                             element={<NewCampaign />}
+                        />
+                        <Route
+                            path="campaigns/:id"
+                            element={<ViewCampaign />}
                         />
                     </Routes>
                 </LoggedInUserProvider>

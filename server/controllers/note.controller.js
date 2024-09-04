@@ -50,6 +50,15 @@ const NoteController = {
         } catch (err) {
             next(err);
         }
+    },
+    "getByCampaign": async (req, res, next) => {
+        const filter = { campaign: req.params.id };
+        try {
+            const notes = await Note.find(filter).populate("createdBy").populate("campaign")
+            res.json(notes);
+        } catch (err) {
+            next(err);
+        }
     }
 }
 export default NoteController;

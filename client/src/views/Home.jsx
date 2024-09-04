@@ -29,7 +29,7 @@ const Home = () => {
                 navLink="/campaigns/new"
             />
             <div className="m-8">
-                <div className="flex justify-between flex-wrap">
+                <div className="flex justify-between flex-wrap gap-8">
                     <Campaigns />
                 </div>
             </div>
